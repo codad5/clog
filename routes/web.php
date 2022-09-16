@@ -22,7 +22,7 @@ Route::resource('posts', Controllers\PostsController::class);
 //auth routes
 Route::get('/login', [Controllers\UsersAuthController::class, 'index']);
 Route::post('/login', [Controllers\UsersAuthController::class, 'login']);
-Route::get('/registration', [Controllers\UsersAuthController::class, 'registration']);
+Route::get('/registration123', [Controllers\UsersAuthController::class, 'registration']);
 Route::post('/registration', [Controllers\UsersAuthController::class, 'postRegistration']);
 Route::get('/dashboard', [Controllers\UsersAuthController::class, 'dashboard'])
 ->middleware('user.loggedIn');
