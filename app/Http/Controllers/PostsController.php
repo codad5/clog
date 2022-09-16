@@ -58,7 +58,7 @@ class PostsController extends Controller
         if($request->hasFile('cover_image')){
             $cover_image_name = $request->file('cover_image')->getClientOriginalName();
             $fn = pathinfo($cover_image_name, PATHINFO_FILENAME);
-            $cover_image_name = $fn.time().pathinfo($cover_image_name, PATHINFO_EXTENSION);
+            $cover_image_name = $fn.time().".".pathinfo($cover_image_name, PATHINFO_EXTENSION);
             $path = $request->file('cover_image')->storeAs('public/cover_image', $cover_image_name);
 
         }
@@ -126,7 +126,7 @@ class PostsController extends Controller
         if($request->hasFile('cover_image')){
             $cover_image_name = $request->file('cover_image')->getClientOriginalName();
             $fn = pathinfo($cover_image_name, PATHINFO_FILENAME);
-            $cover_image_name = $fn.time().pathinfo($cover_image_name, PATHINFO_EXTENSION);
+            $cover_image_name = $fn.time().".".pathinfo($cover_image_name, PATHINFO_EXTENSION);
             $path = $request->file('cover_image')->storeAs('public/cover_image', $cover_image_name);
 
         }
