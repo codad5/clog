@@ -23,7 +23,7 @@ class PagesController extends Controller
     }
 
     public function getCoverImage($filename){
-        $path = storage_path('app/public/cover_image/noimage.jpg');
+        $path = storage_path('app/public/cover_image/' . $filename);
         if(!file_exists($path)){
             abort(404);
         }
