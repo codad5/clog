@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PagesController extends Controller
 {
     //
     public function index(){
-        $title = "welcome to laravel!";
-        return view('pages.index', ['title' => $title]);
+
+        $post = Post::orderBy('created_at', 'DESC')->paginate(10);
+        return view('pages.index', ['posts' => $post]);
     }
 
     public function about(){
