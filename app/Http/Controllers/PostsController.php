@@ -160,7 +160,7 @@ class PostsController extends Controller
             return redirect('/posts')->with('error', 'You must be logged in to create a post');
         }
         $post = Post::find($id);
-        if(auth()->user()->id !== $post->user_id){
+        if(auth()->user()->id != $post->user_id){
             return redirect('/posts')->with('error', "UnAuthorized");
         }
         if($post->cover_image !== 'noimage.jpg'){
