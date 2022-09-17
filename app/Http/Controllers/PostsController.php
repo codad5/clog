@@ -81,6 +81,9 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        if(!isset($post)){
+            return redirect('/posts')->with('error', 'Post not found');
+        }
         return view('posts.show', ['post' => $post]);
     }
 
@@ -97,8 +100,12 @@ class PostsController extends Controller
             return redirect('/posts')->with('error', 'You must be logged in to create a post');
         }
         $post = Post::find($id);
+        // var_dump($post);
+        if(!isset($post)){
+            return redirect('/posts')->with('error', 'Post not found');
+        }
         if(auth()->user()->id !== $post->user_id){
-            return redirect('/posts')->with('error', "UnAuthorized");
+            return redirect('/posts')->with('error', "UnAuthorized ".auth()->user()->id." for ".$post->user_id);
         }
         return view('posts.edit', ['post' => $post]);
     }
