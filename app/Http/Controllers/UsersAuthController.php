@@ -64,7 +64,7 @@ class UsersAuthController extends Controller
         return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
 
-    public function dashboard(){
+    public function dashboard(Request $req){
             // $post = Post::find();
             $user_id = auth()->user('id');
             $user = User::find($user_id->id);
@@ -72,7 +72,7 @@ class UsersAuthController extends Controller
             // print_r($user->posts);
             // echo '</pre>';
         
-            return view('auth.dashboard')->with('posts', $user->posts);
+            return redirect($req->fullUrl())->with('posts', $user->posts);
     }
 
     public function create(array $data)
