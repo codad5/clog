@@ -105,7 +105,7 @@ class PostsController extends Controller
             return redirect('/posts')->with('error', 'Post not found');
         }
         if(auth()->user()->id != $post->user_id){
-            return redirect('/posts')->with('error', "UnAuthorized ".auth()->user()->id." for ".$post->user_id);
+            return redirect('/posts')->with('error', "UnAuthorized ");
         }
         return view('posts.edit', ['post' => $post]);
     }

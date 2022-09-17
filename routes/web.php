@@ -14,6 +14,7 @@ use App\Http\Controllers;
 |
 */
 
+Route::get('/storage/cover_image/{filename}', [Controllers\PagesController::class, 'getCoverImage'])->name('getCoverImage');
 Route::get('/', [Controllers\PagesController::class, 'index']);
 Route::get('/about', [Controllers\PagesController::class, 'about']);
 Route::get('/services', [Controllers\PagesController::class, 'services']);
