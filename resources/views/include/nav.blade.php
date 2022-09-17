@@ -16,8 +16,18 @@
             <a class="nav-link" href="/services">Services</a>
           </li>
           @if(Auth::check())
-        <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        <li class="nav-item dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Admins Actions
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/posts/create">Create Post</a>
+                    <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+            {{-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Admin Actions
             </a>
@@ -26,7 +36,7 @@
             <a class="dropdown-item" href="/dashboard">Dashboard</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/logout">Logout</a>
-            </div>
+            </div> --}}
         </li>
         @endif
         </ul>
